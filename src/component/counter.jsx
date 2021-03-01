@@ -20,7 +20,7 @@ class Counter extends Component {
 
     }
 
-    handleIncrement(product){
+    handleIncrement(product=1){
         console.log(product);
         this.setState({
             count: this.state.count + 1
@@ -51,6 +51,6 @@ class Counter extends Component {
         const {count} = this.state
         return count === 0 ? "Zero" : count;
     } 
-}
+};
  
 export default Counter;
