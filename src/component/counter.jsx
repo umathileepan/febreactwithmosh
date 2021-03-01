@@ -10,18 +10,33 @@ class Counter extends Component {
         };
         this.formatCount=this.formatCount.bind(this);
         this.getBadgeClass=this.getBadgeClass.bind(this);
+        this.handleIncrement=this.handleIncrement.bind(this);
     }
+
+    renderTags(){
+        if(this.state.tags.length === 0)  return <p> There are no tags! </p>;
+        
+        return  <ul>{this.state.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>;
+
+    }
+
+    handleIncrement(product){
+        console.log(product);
+        this.setState({
+            count: this.state.count + 1
+        });
+    };
 
     render() { 
         return ( 
             <div>
                 <span className={this.getBadgeClass()}>{this.formatCount()}</span>
-                <button className="btn btn-secondary btn-sm">Increment</button>
+                <button  onClick={ () => this.handleIncrement(this.product) } className="btn btn-secondary btn-sm">Increment</button>
                 <br />
                 <img src={this.state.imageUrl} alt=""/>
-                <ul>
-                    {this.state.tags.map(tag => <li key={tag}>{tag}</li>)}
-                </ul>
+                
+                {this.renderTags()}
+                
             </div>
          );
     }
