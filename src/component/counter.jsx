@@ -4,7 +4,7 @@ class Counter extends Component {
     constructor(props){
         super(props);
         this.state={
-            count: 0,
+            count: this.props.value,
             imageUrl: "https://picsum.photos/200",
             tags: ['tag1','tag2','tag3']
         };
@@ -30,6 +30,7 @@ class Counter extends Component {
     render() { 
         return ( 
             <div>
+                <h4>{this.props.id}</h4>
                 <span className={this.getBadgeClass()}>{this.formatCount()}</span>
                 <button  onClick={ () => this.handleIncrement(this.product) } className="btn btn-secondary btn-sm">Increment</button>
                 <br />

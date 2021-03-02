@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css';
-import Counter from './component/counter';
+import Counters from './component/counters.jsx';
 
 
-ReactDom.render(<Counter />,document.getElementById('root'));
+ReactDom.render(<Counters />,document.getElementById('root'));
