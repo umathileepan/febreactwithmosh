@@ -11,15 +11,19 @@ class Counters extends React.Component{
             {id: 3, value: 0},
             {id: 4, value: 0}
             ]
-        }
+        };
+        this.handleDelete=this.handleDelete.bind(this);
+    }
+
+    handleDelete = (counterId) => {
+        const counters = this.state.counters.filter(c => c.id !== counterId);
+        this.setState({counters});
     }
 
     render() {
         return(
             <div>
-                {this.state.counters.map(counter => (<Counter key={counter.id} value={counter.value} selected id={counter.id}>
-                </Counter>
-                ))}
+                {this.state.counters.map(counter => (<Counter key={counter.id} onDelete={this.handleDelete} counter={counter} /> ))}
             </div>
         );
     }
